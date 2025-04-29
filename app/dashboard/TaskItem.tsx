@@ -65,35 +65,48 @@ export default function TaskItem({ id, title }: TaskItemProps) {
 
   if (isEditing) {
     return (
-      <form onSubmit={handleEdit} className="flex gap-2 items-center">
+      <form onSubmit={handleEdit} className="flex flex-col items-center gap-2">
         <input
           value={editTitle}
           onChange={e => setEditTitle(e.target.value)}
-          className="border rounded px-2 py-1 flex-1"
+          className="border rounded px-2 py-1 text-sm w-3/4"
           disabled={loading}
           required
+          placeholder="Edit task title"
         />
-        <button type="submit" className="bg-green-600 text-white px-2 py-1 rounded" disabled={loading}>
-          Guardar
-        </button>
-        <button type="button" className="bg-gray-400 text-white px-2 py-1 rounded" onClick={() => setIsEditing(false)} disabled={loading}>
-          Cancelar
-        </button>
-        {error && <span className="text-red-500 ml-2">{error}</span>}
+        <div className="flex gap-2">
+          <button type="submit" className="bg-green-600 text-white px-3 py-1 text-sm rounded hover:bg-green-700 transition" disabled={loading}>
+            Guardar
+          </button>
+          <button type="button" className="bg-gray-400 text-white px-3 py-1 text-sm rounded hover:bg-gray-500 transition" onClick={() => setIsEditing(false)} disabled={loading}>
+            Cancelar
+          </button>
+        </div>
+        {error && <span className="text-red-500 text-xs">{error}</span>}
       </form>
     );
   }
 
   return (
-    <div className="flex items-center gap-2">
-      <span className="flex-1">{title}</span>
-      <button className="bg-yellow-500 text-white px-2 py-1 rounded" onClick={() => setIsEditing(true)} disabled={loading}>
-        Editar
-      </button>
-      <button className="bg-red-600 text-white px-2 py-1 rounded" onClick={handleDelete} disabled={loading}>
-        Eliminar
-      </button>
-      {error && <span className="text-red-500 ml-2">{error}</span>}
+    <div className="flex flex-col items-center gap-2">
+      <span className="text-sm font-medium text-gray-700 text-center">{title}</span>
+      <div className="flex gap-2">
+        <button 
+          className="bg-yellow-500 text-white px-3 py-1 text-sm rounded hover:bg-yellow-600 transition"
+          onClick={() => setIsEditing(true)} 
+          disabled={loading}
+        >
+          Editar
+        </button>
+        <button 
+          className="bg-red-600 text-white px-3 py-1 text-sm rounded hover:bg-red-700 transition"
+          onClick={handleDelete} 
+          disabled={loading}
+        >
+          Eliminar
+        </button>
+      </div>
+      {error && <span className="text-red-500 text-xs">{error}</span>}
     </div>
   );
 }

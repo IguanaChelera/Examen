@@ -26,15 +26,15 @@ export default async function Dashboard() {
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold mb-4">Panel de Control</h1>
+            <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">Panel de Control</h1>
             <NewTaskForm />
-            <ul className="space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {tasks.map((t: { id: number; title: string }) => (
-                    <li key={t.id} className="p-3 bg-white rounded-lg shadow">
+                    <div key={t.id} className="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                         <TaskItem id={t.id} title={t.title} />
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }
