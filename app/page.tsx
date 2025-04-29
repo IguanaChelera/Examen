@@ -3,21 +3,24 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100">
-      <h1 className="text-4xl font-bold mb-8 text-center text-blue-700">Gestor de Tareas</h1>
-      <div className="flex gap-4">
-        <Link 
-          href="/login" 
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-lg"
-        >
-          Iniciar Sesión
-        </Link>
-        <Link 
-          href="/register" 
-          className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition shadow-lg"
-        >
-          Registrarse
-        </Link>
+    <main className="flex min-h-screen flex-col items-center justify-center p-12 bg-gradient-to-br from-blue-100 via-white to-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 text-center">
+        <h1 className="text-5xl font-extrabold mb-6 text-blue-700">Gestor de Tareas</h1>
+        <p className="text-gray-600 mb-8">Organiza tus tareas de manera eficiente y sencilla.</p>
+        <div className="flex gap-4">
+          <Link 
+            href="/login" 
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg hover:from-blue-600 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
+          >
+            Iniciar Sesión
+          </Link>
+          <Link 
+            href="/register" 
+            className="px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-700 text-white rounded-lg hover:from-gray-600 hover:to-gray-800 transition-all shadow-lg hover:shadow-xl"
+          >
+            Registrarse
+          </Link>
+        </div>
       </div>
     </main>
   );
